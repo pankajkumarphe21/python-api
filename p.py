@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 # from flask_cors import CORS
-# from joblib import load
+from joblib import load
 import numpy as np
 from dotenv import load_dotenv
 import os
@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": os.getenv('BACKEND_URL')}})
 
-# model = load('file.joblib')
+model = load('file.joblib')
 
 @app.route("/")
 def home():
