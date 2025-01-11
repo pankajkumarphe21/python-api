@@ -19,12 +19,12 @@ def home():
 def getUser(userId):
     return jsonify(f"Hi {userId}")
 
-@app.route("/predict/<input>",methods=['POST'])
-def predict(input):
-    data = [int(input)]
-    inputs = np.array(data).reshape(1,-1)
-    predictions = model.predict(inputs).tolist()
-    return jsonify({"predictions": predictions})
+# @app.route("/predict/<input>",methods=['POST'])
+# def predict(input):
+#     data = [int(input)]
+#     inputs = np.array(data).reshape(1,-1)
+#     predictions = model.predict(inputs).tolist()
+#     return jsonify({"predictions": predictions})
 
 
 if __name__ == "__main__":
