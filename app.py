@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Welcome to Vercel Deployed API!"})
+    return jsonify({"message": "Welcome!"})
 
 @app.route("/user/<userId>")
 def getUser(userId):
