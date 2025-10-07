@@ -1,7 +1,5 @@
 from flask import Flask, jsonify, request
 # from flask_cors import CORS
-from joblib import load
-import numpy as np
 from dotenv import load_dotenv
 import os
 load_dotenv()
