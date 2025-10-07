@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 # from flask_cors import CORS
 from dotenv import load_dotenv
-import logging
 import os
 load_dotenv()
 
@@ -12,8 +11,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    logging.info('Hi')
-    logging.warning('hhhhhhhhh')
     return jsonify({"message": "Welcome!"})
 
 @app.route("/user/<userId>")
