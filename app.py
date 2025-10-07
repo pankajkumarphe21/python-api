@@ -14,7 +14,6 @@ app = Flask(__name__)
 def home():
     logging.info('Hi')
     logging.warning('hhhhhhhhh')
-    logging.FileHandler
     return jsonify({"message": "Welcome!"})
 
 @app.route("/user/<userId>")
