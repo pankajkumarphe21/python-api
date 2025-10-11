@@ -3,7 +3,6 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from fastapi import HTTPException
 
