@@ -1,29 +1,28 @@
-from flask import Flask, jsonify, request
-# from flask_cors import CORS
+from pydantic import BaseModel
+import uvicorn
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-import os
+import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from fastapi import HTTPException
+
 load_dotenv()
 
-app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": os.getenv('BACKEND_URL')}})
+app = FastAPI()
 
-# model = load('file.joblib')
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"],  
+)
 
-@app.route("/")
-def home():
-    return jsonify({"message": "Welcome!"})
-
-@app.route("/user/<userId>")
-def getUser(userId):
-    return jsonify(f"Hi {userId}")
-
-# @app.route("/predict/<input>",methods=['POST'])
-# def predict(input):
-#     data = [int(input)]
-#     inputs = np.array(data).reshape(1,-1)
-#     predictions = model.predict(inputs).tolist()
-#     return jsonify({"predictions": predictions})
+@app.get('/')
+def greet():
+    return 'Python Backend'
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
