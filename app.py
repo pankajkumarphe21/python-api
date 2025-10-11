@@ -9,7 +9,7 @@ from fastapi import HTTPException
 load_dotenv()
 
 from utils.temp import temp
-
+import subprocess
 
 app = FastAPI()
 
@@ -22,6 +22,15 @@ app.add_middleware(
 )
 
 @app.get('/')
+def greet():
+    result = subprocess.run(
+        ["node", "app.js"],
+        capture_output=True,
+        text=True
+    )
+    return result
+
+@app.get('/temp')
 def greet():
     return 'Hi'
 
