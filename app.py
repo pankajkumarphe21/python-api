@@ -25,10 +25,10 @@ app.add_middleware(
 def greet():
     return 'Hi'
 
-@app.get('/result')
-def greet():
-    ans=temp()
-    return ans
+# @app.get('/result')
+# def greet():
+#     ans=temp()
+#     return ans
 
 
 if __name__ == "__main__":
