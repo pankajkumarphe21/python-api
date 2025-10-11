@@ -8,6 +8,9 @@ from fastapi import HTTPException
 
 load_dotenv()
 
+from utils.temp import temp
+
+
 app = FastAPI()
 
 app.add_middleware(
@@ -20,7 +23,8 @@ app.add_middleware(
 
 @app.get('/')
 def greet():
-    return 'Python Backend'
+    ans=temp()
+    return ans
 
 
 if __name__ == "__main__":
