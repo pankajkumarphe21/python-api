@@ -23,6 +23,10 @@ app.add_middleware(
 
 @app.get('/')
 def greet():
+    return 'Hi'
+
+@app.get('/result')
+def greet():
     ans=temp()
     return ans
 
