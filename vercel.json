@@ -4,7 +4,8 @@
       {
         "src": "app.py",
         "use": "@vercel/python"
-      }
+      },
+      { "src": "app.js", "use": "@vercel/node" }
     ],
     "routes": [
       {
